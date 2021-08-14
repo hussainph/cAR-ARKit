@@ -12,6 +12,7 @@ Manages user interaction with virtual objects to enable one-finger tap, one- and
 
 import UIKit
 import ARKit
+import ARVideoKit
 
 /// - Tag: VirtualObjectInteraction
 class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {

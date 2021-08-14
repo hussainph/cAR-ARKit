@@ -7,6 +7,7 @@ Methods on the main view controller for handling virtual object loading and move
 
 import UIKit
 import ARKit
+import ARVideoKit
 
 extension ViewController: VirtualObjectSelectionViewControllerDelegate {
     

@@ -7,6 +7,7 @@ Methods on the main view controller for conforming to the ARCoachingOverlayViewD
 
 import UIKit
 import ARKit
+import ARVideoKit
 
 /// - Tag: CoachingOverlayViewDelegate
 extension ViewController: ARCoachingOverlayViewDelegate {

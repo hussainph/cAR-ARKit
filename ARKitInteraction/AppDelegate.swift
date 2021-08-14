@@ -7,6 +7,7 @@ Application's delegate.
 
 import UIKit
 import ARKit
+import ARVideoKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,4 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             viewController.blurView.isHidden = true
         }
     }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+    return ViewAR.orientation
+    }
+
 }

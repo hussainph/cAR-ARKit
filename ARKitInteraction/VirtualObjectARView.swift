@@ -7,6 +7,7 @@ A custom `ARSCNView` configured for the requirements of this project.
 
 import Foundation
 import ARKit
+import ARVideoKit
 
 class VirtualObjectARView: ARSCNView {
 

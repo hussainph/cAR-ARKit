@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>AR Interaction</string>
+	<string>cAR AR</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -24,12 +24,20 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>The camera is used for augmenting reality.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>The microphone is used for video recording</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The app uses your Photo Library to store video recordings.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
+		<string>auto-focus-camera</string>
+		<string>microphone</string>
+		<string>video-camera</string>
+		<string>still-camera</string>
 		<string>armv7</string>
 		<string>arkit</string>
 	</array>

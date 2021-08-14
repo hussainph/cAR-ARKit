@@ -8,6 +8,7 @@ Main view controller for the AR experience.
 import ARKit
 import SceneKit
 import UIKit
+import ARVideoKit
 
 class ViewController: UIViewController {
     
@@ -17,12 +18,20 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var addObjectButton: UIButton!
     
+    @IBOutlet weak var startRecButton: UIButton!
+    
+    @IBOutlet weak var photoButton: UIButton!
+    
+    // @IBOutlet weak var endRecButton: UIButton!
+    
     @IBOutlet weak var blurView: UIVisualEffectView!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBOutlet weak var upperControlsView: UIView!
-
+    
+    var recorder:RecordAR?
+    
     // MARK: - UI Elements
     
     let coachingOverlay = ARCoachingOverlayView()
@@ -79,6 +88,8 @@ class ViewController: UIViewController {
         // Set the delegate to ensure this gesture is only used when there are no virtual objects in the scene.
         tapGesture.delegate = self
         sceneView.addGestureRecognizer(tapGesture)
+        //googleButton.addTarget(self, action: "didTapGoogle", forControlEvents: .TouchUpInside)
+        recorder = RecordAR(ARSceneKit: sceneView)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -97,7 +108,7 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        recorder?.rest()
         session.pause()
     }
 
@@ -109,6 +120,7 @@ class ViewController: UIViewController {
         
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal, .vertical]
+        recorder?.prepare(configuration)
         if #available(iOS 12.0, *) {
             configuration.environmentTexturing = .automatic
         }
@@ -166,5 +178,43 @@ class ViewController: UIViewController {
         alertController.addAction(restartAction)
         present(alertController, animated: true, completion: nil)
     }
+    
+    @IBAction func startRecording(_ sender: UIButton) {
+        sender.tag += 1
+        if sender.tag > 2 { sender.tag = 0 }
+        
+        switch sender.tag {
+        case 1:
+            recorder?.record()
+        case 2:
+            recorder?.stopAndExport()
+            let alert = UIAlertController(title: "Recording Saved", message: "Your recording was saved in Photo Gallery.", preferredStyle: .alert)
 
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+
+            self.present(alert, animated: true)
+            sender.tag = 0
+        default:
+            break
+        }
+    }
+    @IBAction func capturePhoto(_ sender: UIButton) {
+        recorder?.export(UIImage: recorder?.photo())
+        let alert = UIAlertController(title: "Photo Saved", message: "Your photo was saved in Photo Gallery.", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true)
+    }
+    
+    /*
+    @IBAction func stopRecording(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Recording Saved", message: "Your recording was saved in Photo Gallery.", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true)
+        recorder?.stopAndExport()
+    }
+ */
 }

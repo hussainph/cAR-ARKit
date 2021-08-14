@@ -7,6 +7,7 @@ UI Actions for the main view controller.
 
 import UIKit
 import SceneKit
+import ARVideoKit
 
 extension ViewController: UIGestureRecognizerDelegate {
     

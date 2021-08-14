@@ -6,6 +6,7 @@ ARSCNViewDelegate interactions for `ViewController`.
 */
 
 import ARKit
+import ARVideoKit
 
 extension ViewController: ARSCNViewDelegate, ARSessionDelegate {
     
