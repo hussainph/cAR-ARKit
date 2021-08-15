@@ -30,7 +30,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var upperControlsView: UIView!
     
-    var recorder:RecordAR?
     
     // MARK: - UI Elements
     
@@ -64,6 +63,8 @@ class ViewController: UIViewController {
     var session: ARSession {
         return sceneView.session
     }
+    /// Recorder variable for ARVideoKit access.
+    var recorder:RecordAR?
     
     // MARK: - View Controller Life Cycle
     
@@ -207,6 +208,7 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    /// Deprecated. Works only for individual button. Switched to ButtonTag instead.
     /*
     @IBAction func stopRecording(_ sender: UIButton) {
         let alert = UIAlertController(title: "Recording Saved", message: "Your recording was saved in Photo Gallery.", preferredStyle: .alert)
