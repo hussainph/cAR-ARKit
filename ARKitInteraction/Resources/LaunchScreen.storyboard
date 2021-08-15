@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -16,19 +16,20 @@
                         <viewControllerLayoutGuide type="bottom" id="MkS-yK-fMK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="switchMode" translatesAutoresizingMaskIntoConstraints="NO" id="edn-Bd-keE">
-                                <rect key="frame" x="115.66666666666669" y="632.66666666666663" width="197" height="21"/>
+                                <rect key="frame" x="89" y="575.66666666666663" width="197" height="21"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cAR_logo" id="cSy-lw-XKp">
-                                <rect key="frame" x="35" y="397" width="357" height="132"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cAR_logo" translatesAutoresizingMaskIntoConstraints="NO" id="7CI-tz-pJf">
+                                <rect key="frame" x="9" y="340" width="357" height="132"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="7CI-tz-pJf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FFn-Qf-fO9"/>
+                            <constraint firstItem="7CI-tz-pJf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="UYL-2q-FhG"/>
                             <constraint firstItem="edn-Bd-keE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xna-ft-ViX"/>
                             <constraint firstItem="edn-Bd-keE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="180" id="zdn-K8-D5A"/>
                         </constraints>
