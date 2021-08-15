@@ -1,5 +1,9 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+Developer: Hussain Phalasiya
+Dev Timestamp: Aug 15 9:00AM
+
+SQA:
+SQA Timestamp:
 
 Abstract:
 Main view controller for the AR experience.
@@ -9,6 +13,24 @@ import ARKit
 import SceneKit
 import UIKit
 import ARVideoKit
+
+/// Project-wide UIViewController extension. Adds an Android-like "toast" alert that dismisses after a set time period.
+extension UIViewController {
+  func showToast(message: String, seconds: Double) {
+    
+    // Message taken as function arg
+    let alert = UIAlertController(title: nil, message: message,
+      preferredStyle: .alert)
+    alert.view.backgroundColor = UIColor.black
+    alert.view.alpha = 0.6
+    alert.view.layer.cornerRadius = 15
+    // Show alert to user
+    present(alert, animated: true)
+    // Use parallel CPU thread to dismiss toast after a set amount of seconds
+    DispatchQueue.main.asyncAfter(
+        deadline: DispatchTime.now() + seconds, execute: {alert.dismiss(animated: true)})
+  }
+}
 
 class ViewController: UIViewController {
     
@@ -112,6 +134,7 @@ class ViewController: UIViewController {
         recorder?.rest()
         session.pause()
     }
+    
 
     // MARK: - Session management
     
@@ -181,34 +204,50 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startRecording(_ sender: UIButton) {
+        
+        // Tag system used to change function of Record button on multiple presses.
         sender.tag += 1
         if sender.tag > 2 { sender.tag = 0 }
         
         switch sender.tag {
         case 1:
+            // First tag starts recording stream for the recorder, shows user notifying toast.
             recorder?.record()
+            showToast(message: "Recording Started", seconds: 0.75)
         case 2:
+            // Second case stops recording stream and exports final video, shows user notifying toast and resets tag to initial state '0'.
             recorder?.stopAndExport()
+            showToast(message: "Recording saved to Gallery!", seconds: 1)
+            
+            /// Phased out, now using toast system to notify user and dismiss.
+            /*
             let alert = UIAlertController(title: "Recording Saved", message: "Your recording was saved in Photo Gallery.", preferredStyle: .alert)
 
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 
             self.present(alert, animated: true)
+            */
             sender.tag = 0
         default:
             break
         }
     }
     @IBAction func capturePhoto(_ sender: UIButton) {
+        // Export recorder image capture to gallery
         recorder?.export(UIImage: recorder?.photo())
+        showToast(message: "Photo saved to Gallery!", seconds: 1)
+        
+        /// Switched Alert declaration to toast system instead.
+        /*
         let alert = UIAlertController(title: "Photo Saved", message: "Your photo was saved in Photo Gallery.", preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 
         self.present(alert, animated: true)
+        */
     }
     
-    /// Deprecated. Works only for individual button. Switched to ButtonTag instead.
+    /// Deprecated. Works only for individual button. Switched to ButtonTag instead on single button to perform multiple functions.
     /*
     @IBAction func stopRecording(_ sender: UIButton) {
         let alert = UIAlertController(title: "Recording Saved", message: "Your recording was saved in Photo Gallery.", preferredStyle: .alert)

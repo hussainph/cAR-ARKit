@@ -1,13 +1,18 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+ Developer: Hussain Phalasiya
+ Dev Timestamp: Aug 15 9:00AM
+
+ SQA:
+ SQA Timestamp:
 
 Abstract:
 Manages user interaction with virtual objects to enable one-finger tap, one- and two-finger pan,
  and two-finger rotation gesture recognizers to let the user position and orient virtual objects.
  
- Note: this sample app doesn't allow object scaling because quite often, scaling doesn't make sense
+ Note: this app doesn't allow object scaling because quite often, scaling doesn't make sense
  for certain virtual items. For example, a virtual television can be scaled within some small believable
  range, but a virtual guitar should always remain the same size.
+ Car model scaling is done completely in SceneKit to match real proportions where possible.
 */
 
 import UIKit

@@ -1,5 +1,9 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+ Developer: Hussain Phalasiya
+ Dev Timestamp: Aug 15 9:00AM
+
+ SQA:
+ SQA Timestamp:
 
 Abstract:
 UI Actions for the main view controller.
