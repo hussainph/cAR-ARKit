@@ -160,13 +160,13 @@
                                 <rect key="frame" x="84.5" y="801.5" width="82" height="43"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htZ-Nc-iN5" userLabel="Image Button">
-                                <rect key="frame" x="260" y="800" width="54" height="54"/>
+                                <rect key="frame" x="258.5" y="799" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="D0u-Jx-r62"/>
-                                    <constraint firstAttribute="width" constant="54" id="ZLb-WU-g32"/>
+                                    <constraint firstAttribute="height" constant="48" id="D0u-Jx-r62"/>
+                                    <constraint firstAttribute="width" constant="48" id="ZLb-WU-g32"/>
                                 </constraints>
                                 <state key="normal">
-                                    <imageReference key="image" image="camera-icon-52" symbolScale="large"/>
+                                    <imageReference key="image" image="camera-white-round" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="capturePhoto:" destination="BV1-FR-VrT" eventType="touchUpInside" id="M8H-0I-d2V"/>
@@ -179,10 +179,10 @@
                             <constraint firstItem="xcf-ic-uGo" firstAttribute="leading" secondItem="GBj-4O-Whc" secondAttribute="leading" constant="258" id="08b-Gf-MPB"/>
                             <constraint firstItem="3cb-dQ-oXx" firstAttribute="width" secondItem="xcf-ic-uGo" secondAttribute="width" constant="-5" id="Fg7-D6-Eh5"/>
                             <constraint firstAttribute="trailing" secondItem="R5W-V8-6lY" secondAttribute="trailing" id="J42-1v-Ihf"/>
-                            <constraint firstItem="GBj-4O-Whc" firstAttribute="bottom" secondItem="htZ-Nc-iN5" secondAttribute="bottom" constant="8" id="JOJ-sp-kXd"/>
+                            <constraint firstItem="GBj-4O-Whc" firstAttribute="bottom" secondItem="htZ-Nc-iN5" secondAttribute="bottom" constant="15" id="JOJ-sp-kXd"/>
                             <constraint firstItem="3cb-dQ-oXx" firstAttribute="centerX" secondItem="xcf-ic-uGo" secondAttribute="centerX" id="KPf-Pf-2mp"/>
                             <constraint firstItem="tnx-rc-95S" firstAttribute="top" secondItem="GBj-4O-Whc" secondAttribute="top" id="Sdx-fT-fqG"/>
-                            <constraint firstItem="GBj-4O-Whc" firstAttribute="trailing" secondItem="htZ-Nc-iN5" secondAttribute="trailing" constant="100" id="TqK-ju-2vN"/>
+                            <constraint firstItem="GBj-4O-Whc" firstAttribute="trailing" secondItem="htZ-Nc-iN5" secondAttribute="trailing" constant="107.5" id="TqK-ju-2vN"/>
                             <constraint firstItem="R5W-V8-6lY" firstAttribute="leading" secondItem="RLh-bf-1c3" secondAttribute="leading" id="Yj0-Fo-B5n"/>
                             <constraint firstItem="xcf-ic-uGo" firstAttribute="leading" secondItem="GBj-4O-Whc" secondAttribute="leading" constant="81.75" id="ajJ-d9-mOg"/>
                             <constraint firstItem="E6c-py-dvH" firstAttribute="top" secondItem="RLh-bf-1c3" secondAttribute="top" id="boO-ZZ-neH"/>
@@ -288,7 +288,7 @@
     </scenes>
     <resources>
         <image name="add" width="48" height="48"/>
-        <image name="camera-icon-52" width="512" height="512"/>
+        <image name="camera-white-round" width="512" height="512"/>
         <image name="player_record.png" width="128" height="128"/>
         <image name="restart" width="20" height="20"/>
         <image name="restartPressed" width="20" height="20"/>
