@@ -59,6 +59,7 @@ class ViewController: UIViewController {
     
     var focusSquare = FocusSquare()
     
+    
     /// The view controller that displays the status and "restart experience" UI.
     lazy var statusViewController: StatusViewController = {
         return children.lazy.compactMap({ $0 as? StatusViewController }).first!
@@ -204,7 +205,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startRecording(_ sender: UIButton) {
-        
+        recorder?.contentMode = .aspectFit
         // Tag system used to change function of Record button on multiple presses.
         sender.tag += 1
         if sender.tag > 2 { sender.tag = 0 }
@@ -212,6 +213,7 @@ class ViewController: UIViewController {
         switch sender.tag {
         case 1:
             // First tag starts recording stream for the recorder, shows user notifying toast.
+            
             recorder?.record()
             showToast(message: "Recording Started", seconds: 0.75)
         case 2:
@@ -233,6 +235,7 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func capturePhoto(_ sender: UIButton) {
+        recorder?.contentMode = .aspectFit
         // Export recorder image capture to gallery
         recorder?.export(UIImage: recorder?.photo())
         showToast(message: "Photo saved to Gallery!", seconds: 1)
