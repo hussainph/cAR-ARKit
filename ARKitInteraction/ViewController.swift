@@ -13,6 +13,8 @@ import ARKit
 import SceneKit
 import UIKit
 import ARVideoKit
+import Flutter
+import FlutterPluginRegistrant
 
 /// Project-wide UIViewController extension. Adds an Android-like "toast" alert that dismisses after a set time period.
 extension UIViewController {
@@ -44,7 +46,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var photoButton: UIButton!
     
-    // @IBOutlet weak var endRecButton: UIButton!
+    @IBOutlet weak var flutterButton: UIButton!
     
     @IBOutlet weak var blurView: UIVisualEffectView!
     
@@ -92,6 +94,7 @@ class ViewController: UIViewController {
     // MARK: - View Controller Life Cycle
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         sceneView.delegate = self
@@ -106,6 +109,7 @@ class ViewController: UIViewController {
         // Hook up status view controller callback(s).
         statusViewController.restartExperienceHandler = { [unowned self] in
             self.restartExperience()
+            
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showVirtualObjectSelectionViewController))
@@ -234,6 +238,7 @@ class ViewController: UIViewController {
             break
         }
     }
+    
     @IBAction func capturePhoto(_ sender: UIButton) {
         recorder?.contentMode = .aspectFit
         // Export recorder image capture to gallery
@@ -249,6 +254,8 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
         */
     }
+    
+    
     
     /// Deprecated. Works only for individual button. Switched to ButtonTag instead on single button to perform multiple functions.
     /*

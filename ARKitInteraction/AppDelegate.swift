@@ -8,13 +8,16 @@ Application's delegate.
 import UIKit
 import ARKit
 import ARVideoKit
+import Flutter
+import FlutterPluginRegistrant
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
-    
-    func application(_ application: UIApplication,
+class AppDelegate: FlutterAppDelegate {
+    lazy var flutterEngine = FlutterEngine(name: "cARFlutter")
+    override func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        flutterEngine.run()
+        GeneratedPluginRegistrant.register(with: self.flutterEngine)
         guard ARWorldTrackingConfiguration.isSupported else {
             fatalError("""
                 ARKit is not available on this device. For apps that require ARKit
@@ -30,19 +33,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func applicationWillResignActive(_ application: UIApplication) {
+    override func applicationWillResignActive(_ application: UIApplication) {
         if let viewController = self.window?.rootViewController as? ViewController {
             viewController.blurView.isHidden = false
         }
     }
     
-    func applicationDidBecomeActive(_ application: UIApplication) {
+    override func applicationDidBecomeActive(_ application: UIApplication) {
         if let viewController = self.window?.rootViewController as? ViewController {
             viewController.blurView.isHidden = true
         }
     }
     
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+    override func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
     return ViewAR.orientation
     }
 
