@@ -255,6 +255,14 @@ class ViewController: UIViewController {
         */
     }
     
+    @IBAction func goBack(_ sender: UIButton) {
+        let instagramHooks = "arcp317://"
+        let instagramUrl = URL(string: instagramHooks)!
+        if UIApplication.shared.canOpenURL(instagramUrl)
+        {
+            UIApplication.shared.openURL(NSURL(string: "arcp317://")! as URL)
+        }
+    }
     
     
     /// Deprecated. Works only for individual button. Switched to ButtonTag instead on single button to perform multiple functions.

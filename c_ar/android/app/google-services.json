@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "88876699351",
+    "firebase_url": "https://car-ar-ce21e-default-rtdb.firebaseio.com",
+    "project_id": "car-ar-ce21e",
+    "storage_bucket": "car-ar-ce21e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88876699351:android:baa10899ab1b49825d6a92",
+        "android_client_info": {
+          "package_name": "com.car.c_ar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88876699351-81848rgs92al6ha1du4cn9rb69pj37h2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvPmwXEbYPtdv-THJCEVz6TyMrg0MTBig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88876699351-81848rgs92al6ha1du4cn9rb69pj37h2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
